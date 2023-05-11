@@ -1,6 +1,6 @@
 import "./App.css";
 import { useSelector, useDispatch } from "react-redux";
-import { incNumber, decNumber } from "./actions/index";
+import { incNumber, decNumber, resetNumber } from "./actions/index";
 
 function App() {
   const state = useSelector((state) => state.changeNumber);
@@ -18,7 +18,7 @@ function App() {
               <button onClick={() => dispatch(decNumber())}>➖</button>
               <p
                 style={{
-                  border: "2px solid black",
+                  border: "1px solid black",
                   width: "80px",
                   height: "40px",
                 }}
@@ -26,7 +26,12 @@ function App() {
                 {state}
               </p>
               <button onClick={() => dispatch(incNumber())}>➕</button>
-              </div>
+            </div>
+            <div className="col-12 d-flex justify-content-center reset-main">
+              <button className="reset" onClick={() => dispatch(resetNumber())}>
+                Reset
+              </button>
+            </div>
           </div>
         </div>
       </div>

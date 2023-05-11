@@ -5,7 +5,13 @@ const changeNumber = (state = initialState, action) => {
     case "INCREMENT":
       return state + 1;
     case "DECREMENT":
-      return state - 1;
+      if (state === 0) {
+        return state;
+      } else {
+        return state - 1;
+      }
+    case "RESET":
+      return initialState;
     default:
       return state;
   }
